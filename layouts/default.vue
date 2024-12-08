@@ -5,7 +5,7 @@ import TheFooter from '@/components/TheFooter.vue';
 
 <template>
 	<div class="main-wrapper">
-		<the-header class="header" />
+		<the-header class="header container" />
 		<main class="main">
 			<NuxtPage />
 		</main>

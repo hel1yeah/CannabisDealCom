@@ -1,11 +1,10 @@
 <template>
-	<p>asdsad</p>
-	<a href="#">asdasdasdas</a>
-	<main-page-slider />
+	<the-first-section />
 </template>
 
 <script setup lang="ts">
-import MainPageSlider from '@/views/MainPageSlider.vue';
+import TheFirstSection from '@/views/main/TheFirstSection.vue';
+// import MainPageSlider from '@/views/MainPageSlider.vue';
 
 definePageMeta({
 	layout: 'default', // Використовуємо шаблон з хедером і футером

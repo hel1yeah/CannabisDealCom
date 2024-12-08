@@ -4,7 +4,7 @@
 	</NuxtLayout>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .main-wrapper {
 	display: flex;
 	flex-direction: column;
@@ -18,7 +18,8 @@
 }
 
 .main {
-	flex: 1 1 auto;
+	flex: 1 1 100vh;
+	max-height: 1200px;
 }
 
 .footer {

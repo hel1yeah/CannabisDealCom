@@ -1,0 +1,28 @@
+// Mobile
+$mobile-portrait-320: 320px;
+$mobile-portrait-360: 360px;
+$mobile-portrait-375: 375px;
+$mobile-portrait-414: 414px;
+$mobile-landscape-480: 480px;
+$mobile-landscape-667: 667px;
+$mobile-landscape-768: 768px;
+
+// Tablets
+$tablet-portrait-768: 768px;
+$tablet-portrait-834: 834px;
+$tablet-landscape-1024: 1024px;
+$tablet-landscape-1366: 1366px;
+
+// Desktop
+$desktop-1280: 1280px;
+$desktop-1366: 1366px;
+$desktop-1440: 1440px;
+$desktop-1600: 1600px;
+$desktop-1920: 1920px;
+$desktop-2560: 2560px;
+
+@mixin media($size) {
+  @media (max-width: $size) {
+    @content;
+  }
+}
