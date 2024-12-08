@@ -23,8 +23,7 @@ import AppMessengers from '~/components/AppMessengers.vue';
 		<div class="container first-section__inner">
 			<div class="first-section__content-left">
 				<h1 class="first-section__title">
-					<!-- gold-text  -->
-					<span class="primary-500">{{ $t('base.cannabis_deal') }}</span>
+					<span class="gold-text">{{ $t('base.cannabis_deal') }}</span>
 					<br />
 					{{ $t('base.buy_cannabis_in_thailand') }}
 				</h1>
@@ -66,8 +65,9 @@ import AppMessengers from '~/components/AppMessengers.vue';
 <style lang="scss" scoped>
 .first-section {
 	height: 100%;
+	max-height: 1200px;
 	z-index: 1;
-	margin: -100px;
+	margin: -100px 0 0 0;
 	padding: 115px 0 0;
 	background: linear-gradient(
 		to right,

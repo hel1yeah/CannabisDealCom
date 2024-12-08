@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 import Aura from '@primevue/themes/aura';
+import svgLoader from 'vite-svg-loader';
 import { definePreset } from '@primevue/themes';
 
 const NyPreset = definePreset(Aura, {
@@ -46,6 +47,7 @@ export default defineNuxtConfig({
 				},
 			},
 		},
+		plugins: [require('tailwindcss-primeui'), svgLoader()],
 	},
 	compatibilityDate: '2024-11-01',
 	devtools: { enabled: true },

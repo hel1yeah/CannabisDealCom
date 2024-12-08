@@ -18,8 +18,7 @@
 }
 
 .main {
-	flex: 1 1 100vh;
-	max-height: 1200px;
+	flex: 1 1 auto;
 }
 
 .footer {
