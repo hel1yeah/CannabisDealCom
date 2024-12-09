@@ -43,7 +43,7 @@ const arrInfo = [
 				<div class="desc">
 					{{ $t(item.desc) }}
 				</div>
-				<AppButtonLink
+				<app-button-link
 					controlClass="button"
 					type="primary"
 					:isLoading="false"
@@ -53,7 +53,7 @@ const arrInfo = [
 					<template #text>
 						{{ $t('header.about_us') }}
 					</template>
-				</AppButtonLink>
+				</app-button-link>
 			</div>
 			<NuxtImg
 				class="image"

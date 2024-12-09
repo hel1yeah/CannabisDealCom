@@ -1,7 +1,12 @@
+<script lang="ts" setup>
+import ScrollTop from 'primevue/scrolltop';
+</script>
+
 <template>
 	<NuxtLayout>
 		<NuxtPage />
 	</NuxtLayout>
+	<ScrollTop class="scrolltop" />
 </template>
 
 <style lang="scss">
@@ -23,5 +28,9 @@
 
 .footer {
 	flex: 0 0 auto;
+}
+
+.scrolltop {
+	background-color: var(--cannabis-primary-color);
 }
 </style>

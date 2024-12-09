@@ -1,4 +1,9 @@
 {
+	"select_an_option": "Select an option",
+	"available_options": "Available Options",
+	"add_to_cart": "Add to Cart",
+	"explore_our_products": "Explore Our Products",
+	"about": "About",
 	"hello": "Hello, {name}!",
 	"about_us": "About Us",
 	"language": "Language",

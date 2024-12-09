@@ -2,6 +2,7 @@ import type { IFeaturedProducts } from '@/types/products';
 export const FeaturedProducts: IFeaturedProducts[] = [
 	{
 		id: 'green_house',
+		staticName: 'Green House',
 		nameI18N: 'green_house',
 		tasteI18N: 'green_house_taste',
 		descI18N: ['green_house_desc', 'green_house_desc_2', 'green_house_desc_3'],
@@ -34,9 +35,11 @@ export const FeaturedProducts: IFeaturedProducts[] = [
 				price: 1000,
 			},
 		],
+		rating: 5,
 	},
 	{
 		id: 'mac-1',
+		staticName: 'Mac 1',
 		nameI18N: 'mac_1',
 		tasteI18N: 'mac_1_taste',
 		descI18N: ['mac_1_desc', 'mac_1_desc_2', 'mac_1_desc_3', 'mac_1_desc_4'],
@@ -44,8 +47,8 @@ export const FeaturedProducts: IFeaturedProducts[] = [
 		pluses: ['beautiful_nuggets', 'high_in_thc', 'toxic_sour_earthy_taste'],
 		product_link: 'mac-1',
 		price: {
-			max: 220,
-			min: 3500,
+			max: 3500,
+			min: 220,
 		},
 		select: [
 			{
@@ -65,5 +68,6 @@ export const FeaturedProducts: IFeaturedProducts[] = [
 				price: 3500,
 			},
 		],
+		rating: 4,
 	},
 ];

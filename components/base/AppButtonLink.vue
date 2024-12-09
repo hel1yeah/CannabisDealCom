@@ -28,6 +28,11 @@ const { type = null, isLoading = false, to = '/' } = defineProps<IProps>();
 	background-color: var(--cannabis-primary-color);
 	color: var(--text-color);
 	font-weight: 600;
-	transition: all 0.4s ease-in-out;
+	transition: opacity 0.4s ease-in-out;
+	opacity: 0.8;
+
+	&:hover {
+		opacity: 1;
+	}
 }
 </style>

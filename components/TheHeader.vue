@@ -9,6 +9,10 @@ const arrList = [
 		link: '/',
 	},
 	{
+		desc: t('header.shop'),
+		link: '/shop',
+	},
+	{
 		desc: t('header.about_us'),
 		link: '/about-us',
 	},
@@ -17,7 +21,7 @@ const arrList = [
 
 <template>
 	<header class="header">
-		<NuxtLink class="header__logo-link" to="/about-us">
+		<NuxtLink class="header__logo-link" to="/">
 			<NuxtImg
 				class="header__logo"
 				src="/images/top-logo-txt.webp"

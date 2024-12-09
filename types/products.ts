@@ -1,5 +1,7 @@
+import Rating from 'primevue/rating';
 export interface IFeaturedProducts {
 	id: string;
+	staticName: string;
 	nameI18N: string;
 	tasteI18N: string;
 	descI18N: string[];
@@ -11,4 +13,5 @@ export interface IFeaturedProducts {
 		count: number;
 		price: number;
 	}[];
+	rating: 5 | 4 | 3 | 2 | 1;
 }

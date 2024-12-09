@@ -7,9 +7,6 @@ import IconDelivery from '@/public/images/icons/icon-delivery.svg';
 import IconGuide from '@/public/images/icons/icon-guide.svg';
 import IconWorks from '@/public/images/icons/icon-works.svg';
 
-import { useImage } from '~/composables/useImage';
-const { imagesNames } = useImage();
-
 const componentsObject = [
 	IconTop,
 	IconDollar,

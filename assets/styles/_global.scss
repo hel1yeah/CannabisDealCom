@@ -78,11 +78,44 @@ ul {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-  // background-color: #f5f5f5;
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--cannabis-secondary-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--cannabis-primary-color);
+  border-radius: 6px;
+  opacity: 0.5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  opacity: 1;
+}
+
+/* Для Firefox */
+* {
+  scrollbar-color: var(--cannabis-primary-color) var(--cannabis-primary-color);
+  scrollbar-width: thin;
 }
 
 .p-scrollpanel .p-scrollpanel-content {
   overflow: scroll;
+}
+
+.p-scrollpanel-bar {
+  background-color: var(--cannabis-primary-color);
+  background: var(--cannabis-primary-color);
+}
+
+::selection {
+  background-color: var(--cannabis-primary-color);
+  color: var(--text-color);
+}
+
+.p-scrolltop {
+  background: var(--cannabis-primary-color);
 }

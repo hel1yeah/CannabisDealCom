@@ -1,13 +1,14 @@
 <script setup lang="ts">
 interface IProps {
 	type: string;
-	isLoading: boolean;
+	isLoading?: boolean;
+	isDisabled?: boolean;
 }
 const { type = null, isLoading = false } = defineProps<IProps>();
 </script>
 
 <template>
-	<button :class="['base-button', type]">
+	<button :class="['base-button', type]" :disabled="isDisabled">
 		<slot name="icon"></slot>
 		<slot name="text"></slot>
 	</button>
@@ -26,6 +27,11 @@ const { type = null, isLoading = false } = defineProps<IProps>();
 	background-color: var(--cannabis-primary-color);
 	color: var(--text-color);
 	font-weight: 600;
-	transition: all 0.4s ease-in-out;
+	transition: opacity 0.4s ease-in-out;
+	opacity: 0.8;
+
+	&:hover {
+		opacity: 1;
+	}
 }
 </style>
