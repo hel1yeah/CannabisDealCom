@@ -33,5 +33,10 @@ const { type = null, isLoading = false } = defineProps<IProps>();
 	&:hover {
 		opacity: 1;
 	}
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
 }
 </style>

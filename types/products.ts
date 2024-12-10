@@ -1,6 +1,6 @@
-import Rating from 'primevue/rating';
 export interface IFeaturedProducts {
 	id: string;
+	forSlider: boolean;
 	staticName: string;
 	nameI18N: string;
 	tasteI18N: string;

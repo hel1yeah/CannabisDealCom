@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import ScrollTop from 'primevue/scrolltop';
+import Toast from 'primevue/toast';
 </script>
 
 <template>
@@ -7,6 +8,7 @@ import ScrollTop from 'primevue/scrolltop';
 		<NuxtPage />
 	</NuxtLayout>
 	<ScrollTop class="scrolltop" />
+	<Toast />
 </template>
 
 <style lang="scss">

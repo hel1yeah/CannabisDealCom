@@ -3,6 +3,8 @@ import AppButtonLink from '@/components/base/AppButtonLink.vue';
 import AppButton from '@/components/base/AppButton.vue';
 import Rating from 'primevue/rating';
 import Select from 'primevue/select';
+import { useToast } from 'primevue/usetoast';
+
 import type { IFeaturedProducts } from '@/types/products';
 import type { TypeCard } from '@/types/card';
 import { ETypeCard } from '@/types/card';
@@ -24,8 +26,19 @@ const shadowClass = ref({ card__shadow: isNeedShadow });
 
 const selectedPrice = ref();
 
-function onAddToCart() {
+const toast = useToast();
+
+const showSuccess = () => {
+	toast.add({
+		severity: 'success',
+		summary: 'Success Message',
+		detail: 'Message Content',
+		life: 3000000,
+	});
 	console.log(selectedPrice.value);
+};
+function onAddToCart() {
+	showSuccess();
 }
 </script>
 <template>
@@ -131,12 +144,12 @@ function onAddToCart() {
 					</template>
 				</AppButtonLink>
 				<app-button
+					@click="onAddToCart"
 					v-if="isKindOfShopCard"
 					type="primary"
 					:disabled="!selectedPrice"
 					:isLoading="false"
 					class="card__button"
-					@click="onAddToCart"
 				>
 					<template #text>
 						{{ $t('base.add_to_cart') }}

@@ -2,6 +2,8 @@
 
 import Aura from '@primevue/themes/aura';
 import svgLoader from 'vite-svg-loader';
+import ToastService from 'primevue/toastservice';
+
 import { definePreset } from '@primevue/themes';
 
 const NyPreset = definePreset(Aura, {
@@ -31,6 +33,7 @@ const NyPreset = definePreset(Aura, {
 });
 
 export default defineNuxtConfig({
+	plugins: ['~/plugins/primevue-toast.ts'],
 	app: {
 		head: {
 			title: 'hel1_yeah',
@@ -47,7 +50,7 @@ export default defineNuxtConfig({
 				},
 			},
 		},
-		plugins: [require('tailwindcss-primeui'), svgLoader()],
+		plugins: [require('tailwindcss-primeui'), svgLoader(), ToastService],
 	},
 	compatibilityDate: '2024-11-01',
 	devtools: { enabled: true },

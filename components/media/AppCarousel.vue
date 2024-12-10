@@ -8,13 +8,28 @@ import type { IFeaturedProducts } from '@/types/products';
 import { FeaturedProducts } from '@/constants/product';
 
 import Carousel from 'primevue/carousel';
-import ScrollPanel from 'primevue/scrollpanel';
 
 onMounted(() => {
-	products.value = FeaturedProducts;
+	products.value = FeaturedProducts.filter((item) => {
+		return item.forSlider;
+	}).slice(0, 4);
 });
 
 const products = ref<IFeaturedProducts[] | null>(null);
+
+const productsIsMany = computed(() => {
+	if (!products.value) return false;
+	return products.value?.length > 1;
+});
+
+const compAutoPlayInterval = computed(() => {
+	return productsIsMany.value ? 10000 : 0;
+});
+
+const isCircular = computed(() => {
+	return productsIsMany.value;
+});
+
 interface responsiveOptions {
 	breakpoint: string;
 	numVisible: number;
@@ -51,8 +66,8 @@ const responsiveOptions = ref<responsiveOptions[]>([
 			:numVisible="1"
 			:numScroll="1"
 			:responsiveOptions="responsiveOptions"
-			:autoplayInterval="10000"
-			circular
+			:autoplayInterval="compAutoPlayInterval"
+			:circular="isCircular"
 			contentClass="carousel-content"
 			containerClass="carousel-container"
 			indicatorsContentClass="custom-indicator"
@@ -119,6 +134,7 @@ const responsiveOptions = ref<responsiveOptions[]>([
 .app-carousel {
 	width: 100%;
 	max-width: 430px;
+	min-height: 688px;
 	overflow: hidden;
 }
 </style>

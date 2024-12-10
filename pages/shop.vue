@@ -38,7 +38,7 @@ onMounted(() => {
 }
 .shop__cards {
 	display: grid;
-	grid-template-columns: (repeat(3, minmax(250px, 350px)));
+	grid-template-columns: (repeat(3, minmax(250px, 1fr)));
 	gap: 2rem;
 }
 </style>
