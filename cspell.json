@@ -4,10 +4,16 @@
 	"dictionaryDefinitions": [],
 	"dictionaries": [],
 	"words": [
+		"Додає",
+		"Кількість",
+		"кінці",
+		"рядків",
+		"тексту",
 		"citrusy",
 		"Messegers",
 		"primevue",
-		"scrollpanel"
+		"scrollpanel",
+		"usetoast"
 	],
 	"ignoreWords": [],
 	"import": []

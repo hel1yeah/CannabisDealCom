@@ -1,11 +1,14 @@
 import { filename } from 'pathe/utils';
 
-export function useImage() {
+export function useCustomImage() {
 	const glob = import.meta.glob('@/public/images/icons/*.svg', { eager: true });
 
 	function getImages() {
 		return Object.fromEntries(
-			Object.entries(glob).map(([key, value]) => [filename(key), value.default])
+			Object.entries(glob).map(([key, value]) => [
+				filename(key),
+				value?.default,
+			])
 		);
 	}
 

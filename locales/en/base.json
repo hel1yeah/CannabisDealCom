@@ -1,4 +1,6 @@
 {
+	"cannabis": "Cannabis",
+	"accessories": "Accessories",
 	"select_an_option": "Select an option",
 	"available_options": "Available Options",
 	"add_to_cart": "Add to Cart",
@@ -13,5 +15,7 @@
 	"looking_to_buy_cannabis": "Looking to buy cannabis or order weed in Thailand? Cannabis-Deal.com is your go-to online shop for premium quality, affordable marijuana. We offer instant delivery in Pattaya with convenient cash on delivery option, and fast shipping throughout Thailand",
 	"need_assistance": "Need Assistance?",
 	"contact_us_daily": "Contact Us Daily from {from} - {to} via Line, Telegram, or WhatsApp",
-	"featured_products": "Featured Products"
+	"featured_products": "Featured Products",
+	"product_added_to_cart": "The {product} was successfully added to your cart",
+	"enjoy_shopping": "Enjoy your shopping"
 }

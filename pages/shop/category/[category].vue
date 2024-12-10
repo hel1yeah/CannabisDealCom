@@ -1,21 +1,29 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
 
-import AppCard from '~/components/media/AppCard.vue';
+const route = useRoute();
+const category: TYPE_PRODUCT = route.params.category as TYPE_PRODUCT;
+
+import AppCard from '@/components/media/AppCard.vue';
 import { ETypeCard } from '@/types/card';
 import type { IFeaturedProducts } from '@/types/products';
+import type { TYPE_PRODUCT } from '@/types/products';
 import { FeaturedProducts } from '@/constants/product';
+import { useFilterCategories } from '@/composables/useFilterCategories';
+
+const { filterCategoriesByType } = useFilterCategories();
 
 const products = ref<IFeaturedProducts[] | null>(null);
 onMounted(() => {
-	products.value = FeaturedProducts;
+	products.value = filterCategoriesByType(FeaturedProducts, category);
 });
 </script>
 
 <template>
 	<div class="container shop">
 		<h1 class="shop__title">
-			{{ $t('header.shop') }}
+			{{ $t('header.shop') }} / {{ $t(`base.${category}`) }}
 		</h1>
 
 		<div class="shop__cards">

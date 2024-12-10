@@ -1,14 +1,17 @@
+export type TYPE_PRODUCT = 'cannabis' | 'accessories';
+
 export interface IFeaturedProducts {
 	id: string;
 	forSlider: boolean;
+	typeProduct: TYPE_PRODUCT;
 	staticName: string;
 	nameI18N: string;
-	tasteI18N: string;
+	tasteI18N?: string;
 	descI18N: string[];
-	image: string;
-	pluses: string[];
+	main_image: string;
+	pluses?: string[];
 	product_link: string;
-	price: { max: number; min: number };
+	price: { max: number; min: number; one?: number };
 	select: {
 		count: number;
 		price: number;

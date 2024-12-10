@@ -4,6 +4,9 @@ import AppButton from '@/components/base/AppButton.vue';
 import Rating from 'primevue/rating';
 import Select from 'primevue/select';
 import { useToast } from 'primevue/usetoast';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 import type { IFeaturedProducts } from '@/types/products';
 import type { TypeCard } from '@/types/card';
@@ -26,16 +29,25 @@ const shadowClass = ref({ card__shadow: isNeedShadow });
 
 const selectedPrice = ref();
 
+function checkTypeOfProduct() {
+	if (card?.price?.one) {
+		selectedPrice.value = 1;
+	}
+}
+
+checkTypeOfProduct();
+
 const toast = useToast();
 
 const showSuccess = () => {
 	toast.add({
 		severity: 'success',
-		summary: 'Success Message',
-		detail: 'Message Content',
-		life: 3000000,
+		summary: t('base.product_added_to_cart', {
+			product: t(`products.${card?.nameI18N}`),
+		}),
+		detail: t('base.enjoy_shopping'),
+		life: 4000,
 	});
-	console.log(selectedPrice.value);
 };
 function onAddToCart() {
 	showSuccess();
@@ -46,9 +58,9 @@ function onAddToCart() {
 		<template v-if="card">
 			<NuxtImg
 				class="card__img"
-				:src="`/images/products/${card.image}`"
+				:src="`/images/products/${card.main_image}`"
 				loading="lazy"
-				alt="card.nameI18N"
+				:alt="$t(`products.${card.nameI18N}`)"
 			/>
 			<template v-if="isKindOfCarouselCard">
 				<strong class="card__title">
@@ -94,11 +106,15 @@ function onAddToCart() {
 					class="card__shop__rating"
 				/>
 
-				<div class="card__shop__price">
+				<div v-if="card.price?.one" class="card__shop__price">
+					{{ card.price.one }}฿
+				</div>
+				<div v-else class="card__shop__price">
 					{{ card.price.min }}฿ - {{ card.price.max }}฿
 				</div>
 
 				<Select
+					v-if="!card.price?.one"
 					v-model="selectedPrice"
 					:options="card.select"
 					showClear
@@ -125,6 +141,8 @@ function onAddToCart() {
 					</template>
 				</Select>
 
+				<div v-else class="card__shop__price plug"></div>
+
 				<!-- <Select
 					:options="card.select"
 					optionLabel="name"
@@ -136,7 +154,7 @@ function onAddToCart() {
 				<AppButtonLink
 					type="primary"
 					:isLoading="false"
-					:to="`/products/${card.product_link}`"
+					:to="`/shop/category/${card.typeProduct}/${card.product_link}`"
 					class="card__button"
 				>
 					<template #text>
@@ -189,12 +207,6 @@ function onAddToCart() {
 	// transform: scale(0.9);
 }
 
-.card__shadow {
-	-webkit-box-shadow: 0px 0px 40px -21px var(--shadow-color);
-	-moz-box-shadow: 0px 0px 40px -21px var(--shadow-color);
-	box-shadow: 0px 0px 40px -21px (var(--shadow-color));
-}
-
 .card__pluses-item {
 	display: flex;
 	gap: 0.5rem;
@@ -234,6 +246,10 @@ function onAddToCart() {
 	font-size: 1.25rem;
 	font-weight: 900;
 	text-align: center;
+
+	&.plug {
+		height: 40px;
+	}
 }
 
 .card__shop__rating {
