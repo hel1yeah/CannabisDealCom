@@ -33,7 +33,7 @@ const NyPreset = definePreset(Aura, {
 });
 
 export default defineNuxtConfig({
-	plugins: ['~/plugins/primevue-toast.ts'],
+	plugins: ['@/plugins/primevue-toast.ts'],
 	app: {
 		head: {
 			title: 'hel1_yeah',
@@ -41,7 +41,7 @@ export default defineNuxtConfig({
 			viewport: 'width=device-width, initial-scale=1',
 		},
 	},
-	css: ['~/assets/styles/main.scss'],
+	css: ['@/assets/styles/main.scss'],
 	vite: {
 		css: {
 			preprocessorOptions: {
@@ -55,6 +55,7 @@ export default defineNuxtConfig({
 	compatibilityDate: '2024-11-01',
 	devtools: { enabled: true },
 	modules: [
+		'@pinia/nuxt',
 		'@nuxt/fonts',
 		'@nuxt/image',
 		'nuxt-svgo-loader',

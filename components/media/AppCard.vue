@@ -5,10 +5,14 @@ import Rating from 'primevue/rating';
 import Select from 'primevue/select';
 import { useToast } from 'primevue/usetoast';
 import { useI18n } from 'vue-i18n';
+import type { IShoppingCardProducts } from '@/types/shopping_card';
+import { useShoppingCartStore } from '@/store/useShoppingCartStore';
 
+const { addItemInList } = useShoppingCartStore();
 const { t } = useI18n();
 
 import type { IFeaturedProducts } from '@/types/products';
+import { ETypeProduct } from '@/types/products';
 import type { TypeCard } from '@/types/card';
 import { ETypeCard } from '@/types/card';
 interface IProps {
@@ -27,15 +31,26 @@ const isKindOfShopCard = ref<boolean>(type === ETypeCard.ShopCard);
 
 const shadowClass = ref({ card__shadow: isNeedShadow });
 
-const selectedPrice = ref();
+const selectedPrice = ref<{
+	weight: number;
+	price: number;
+} | null>(null);
 
-function checkTypeOfProduct() {
-	if (card?.price?.one) {
-		selectedPrice.value = 1;
-	}
-}
+// function checkTypeOfProduct() {
+// 	if (card?.price?.one) {
+// 		selectedPrice.value = 1;
+// 	}
+// }
 
-checkTypeOfProduct();
+// checkTypeOfProduct();
+
+const isNeedSelected = computed(() => {
+	return card?.typeProduct === ETypeProduct.Cannabis;
+});
+
+const isDisabledButton = computed(() => {
+	return isNeedSelected.value ? !selectedPrice.value : false;
+});
 
 const toast = useToast();
 
@@ -49,7 +64,25 @@ const showSuccess = () => {
 		life: 4000,
 	});
 };
-function onAddToCart() {
+function onAddToCart(card: IFeaturedProducts) {
+	const product: IShoppingCardProducts = {
+		id: card?.id,
+		staticName: card?.staticName,
+		nameI18N: card?.nameI18N,
+		// price: selectedPrice.value.price,
+		main_image: card?.main_image,
+		product_link: card?.product_link,
+		typeProduct: card?.typeProduct,
+		counterProduct: 1,
+	};
+
+	if (ETypeProduct.Accessories === card?.typeProduct) product.count = 1;
+	else product.weight = selectedPrice.value.weight;
+
+	if (!isNeedSelected.value) product.price = card.price.one;
+	else product.price = selectedPrice.value.price;
+
+	addItemInList(product);
 	showSuccess();
 }
 </script>
@@ -124,13 +157,13 @@ function onAddToCart() {
 				>
 					<template #value="slotProps">
 						<div v-if="slotProps.value" class="card__shop__select-value">
-							<div>{{ slotProps.value.count }}-gram</div>
+							<div>{{ slotProps.value.weight }}-gram</div>
 							<div>฿{{ slotProps.value.price }}</div>
 						</div>
 					</template>
 					<template #option="slotProps">
 						<div class="card__shop__select-option">
-							<div>{{ slotProps.option.count }}-gram</div>
+							<div>{{ slotProps.option.weight }}-gram</div>
 							<div>฿{{ slotProps.option.price }}</div>
 						</div>
 					</template>
@@ -162,10 +195,11 @@ function onAddToCart() {
 					</template>
 				</AppButtonLink>
 				<app-button
-					@click="onAddToCart"
+					@click="onAddToCart(card)"
+					label
 					v-if="isKindOfShopCard"
 					type="primary"
-					:disabled="!selectedPrice"
+					:disabled="isDisabledButton"
 					:isLoading="false"
 					class="card__button"
 				>
@@ -195,13 +229,13 @@ function onAddToCart() {
 	margin: 0 auto;
 	max-width: 380px;
 	background-color: var(--background-color);
-	padding: 1.25rem;
+	padding: 1rem;
 	border-radius: 20px;
 
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	gap: 1rem;
+	gap: 0.7rem;
 
 	// transition: transform 0.3s ease;
 	// transform: scale(0.9);
@@ -230,7 +264,7 @@ function onAddToCart() {
 	height: 100%;
 	object-fit: cover;
 	border-radius: 10px;
-	max-width: 340px;
+	// max-width: 340px;
 	max-height: 180px;
 }
 .card__shop__title {

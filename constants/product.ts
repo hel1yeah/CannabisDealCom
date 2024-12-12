@@ -21,19 +21,19 @@ export const FeaturedProducts: IFeaturedProducts[] = [
 		},
 		select: [
 			{
-				count: 1,
+				weight: 1,
 				price: 80,
 			},
 			{
-				count: 5,
+				weight: 5,
 				price: 350,
 			},
 			{
-				count: 10,
+				weight: 10,
 				price: 600,
 			},
 			{
-				count: 20,
+				weight: 20,
 				price: 1000,
 			},
 		],
@@ -56,19 +56,19 @@ export const FeaturedProducts: IFeaturedProducts[] = [
 		},
 		select: [
 			{
-				count: 1,
+				weight: 1,
 				price: 220,
 			},
 			{
-				count: 5,
+				weight: 5,
 				price: 1050,
 			},
 			{
-				count: 10,
+				weight: 10,
 				price: 2000,
 			},
 			{
-				count: 20,
+				weight: 20,
 				price: 3500,
 			},
 		],
@@ -92,19 +92,19 @@ export const FeaturedProducts: IFeaturedProducts[] = [
 		},
 		select: [
 			{
-				count: 1,
+				weight: 1,
 				price: 220,
 			},
 			{
-				count: 5,
+				weight: 5,
 				price: 1050,
 			},
 			{
-				count: 10,
+				weight: 10,
 				price: 2000,
 			},
 			{
-				count: 20,
+				weight: 20,
 				price: 3500,
 			},
 		],
@@ -140,19 +140,19 @@ export const FeaturedProducts: IFeaturedProducts[] = [
 		},
 		select: [
 			{
-				count: 1,
+				weight: 1,
 				price: 220,
 			},
 			{
-				count: 5,
+				weight: 5,
 				price: 1050,
 			},
 			{
-				count: 10,
+				weight: 10,
 				price: 2000,
 			},
 			{
-				count: 20,
+				weight: 20,
 				price: 3500,
 			},
 		],

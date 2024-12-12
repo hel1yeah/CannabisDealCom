@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 
-import AppCard from '~/components/media/AppCard.vue';
+import AppLoader from '@/components/common/AppLoader.vue';
+import AppCard from '@/components/media/AppCard.vue';
 
 import { ETypeCard } from '@/types/card';
 import type { IFeaturedProducts } from '@/types/products';
@@ -62,6 +63,7 @@ const responsiveOptions = ref<responsiveOptions[]>([
 <template>
 	<div class="app-carousel">
 		<Carousel
+			v-if="products"
 			:value="products"
 			:numVisible="1"
 			:numScroll="1"
@@ -127,6 +129,9 @@ const responsiveOptions = ref<responsiveOptions[]>([
 				</div> -->
 			</template>
 		</Carousel>
+		<div v-else class="loader-wrapper">
+			<AppLoader />
+		</div>
 	</div>
 </template>
 
@@ -136,6 +141,14 @@ const responsiveOptions = ref<responsiveOptions[]>([
 	max-width: 430px;
 	min-height: 688px;
 	overflow: hidden;
+}
+.loader-wrapper {
+	width: 100%;
+	max-width: 430px;
+	min-height: 688px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 </style>
 

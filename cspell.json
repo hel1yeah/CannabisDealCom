@@ -11,8 +11,12 @@
 		"тексту",
 		"citrusy",
 		"Messegers",
+		"pinia",
+		"primeui",
 		"primevue",
 		"scrollpanel",
+		"scrolltop",
+		"toastservice",
 		"usetoast"
 	],
 	"ignoreWords": [],

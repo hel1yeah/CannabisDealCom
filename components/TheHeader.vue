@@ -3,6 +3,10 @@ import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
 
+import { useSticky } from '../composables/useSticky';
+const headerRef = ref<HTMLElement | null>(null);
+const { isSticky } = useSticky(headerRef);
+
 const arrList = [
 	{
 		desc: t('header.home'),
@@ -20,7 +24,7 @@ const arrList = [
 </script>
 
 <template>
-	<header class="header">
+	<header :class="['header', { sticky: isSticky }]" ref="headerRef">
 		<NuxtLink class="header__logo-link" to="/">
 			<NuxtImg
 				class="header__logo"

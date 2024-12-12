@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import AppButton from '@/components/base/AppButton.vue';
 import AppCarousel from '@/components/media/AppCarousel.vue';
-import AppMessengers from '~/components/AppMessengers.vue';
+import AppMessengers from '@/components/AppMessengers.vue';
 </script>
 
 <template>
@@ -64,11 +64,11 @@ import AppMessengers from '~/components/AppMessengers.vue';
 
 <style lang="scss" scoped>
 .first-section {
-	height: 100%;
+	height: 100vh;
 	max-height: 1200px;
 	z-index: 1;
-	margin: -100px 0 0 0;
-	padding: 115px 0 0;
+	margin: -96px 0 0 0;
+	padding: 96px 0 0;
 	background: linear-gradient(
 		to right,
 		white 0%,
@@ -91,7 +91,7 @@ import AppMessengers from '~/components/AppMessengers.vue';
 }
 .first-section__content-left,
 .first-section__content-right {
-	padding: 40px 0;
+	// padding: 40px 0;
 	position: relative;
 }
 

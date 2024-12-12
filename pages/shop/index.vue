@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 
-import AppCard from '~/components/media/AppCard.vue';
+import AppCard from '@/components/media/AppCard.vue';
 import AppCategory from '@/components/shop/AppCategory.vue';
 import { ETypeCard } from '@/types/card';
 import type { IFeaturedProducts } from '@/types/products';

@@ -1,5 +1,10 @@
 export type TYPE_PRODUCT = 'cannabis' | 'accessories';
 
+export enum ETypeProduct {
+	Cannabis = 'cannabis',
+	Accessories = 'accessories',
+}
+
 export interface IFeaturedProducts {
 	id: string;
 	forSlider: boolean;
@@ -13,7 +18,7 @@ export interface IFeaturedProducts {
 	product_link: string;
 	price: { max: number; min: number; one?: number };
 	select: {
-		count: number;
+		weight: number;
 		price: number;
 	}[];
 	rating: 5 | 4 | 3 | 2 | 1;
